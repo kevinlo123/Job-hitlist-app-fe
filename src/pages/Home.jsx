@@ -17,7 +17,7 @@ function Home() {
         const data = await response.json();
 
         setTimeout(() => {
-          setJobs(data);
+          setJobs(data.Jobs);
           setLoading(false);
         }, 500); 
       } catch (error) {
@@ -27,6 +27,7 @@ function Home() {
     };
 
     fetchJobs();
+
   }, []);
 
   return (

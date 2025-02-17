@@ -1,12 +1,37 @@
-import React from 'react';
-import { Typography, Container } from "@mui/material";
+import React, { useEffect, useState } from 'react';
+import { Typography, Container, Skeleton } from "@mui/material";
 import OutlinedCard from '../components/Job';
 import { Box } from '@mui/system';
 
 function Home() {
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch('http://https://job-hitlist-app-fe.vercel.app/api/Jobs');
+        if (!response.ok) {
+          throw new Error('Failed to fetch jobs');
+        }
+        const data = await response.json();
+
+        setTimeout(() => {
+          setJobs(data);
+          setLoading(false);
+        }, 500); 
+      } catch (error) {
+        console.error('Error fetching jobs:', error);
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
   return (
     <>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Typography 
           sx={{
             textAlign: 'center',
@@ -15,36 +40,32 @@ function Home() {
           }} 
           variant="h4"
         >
-          {/* First Row of Jobs */}
           <Box
             sx={{
               display: 'flex',
-              justifyContent: { xs: 'center', sm: 'space-between' }, // Center on small screens
-              flexWrap: 'wrap', // Allow wrapping of job boxes on smaller screens
+              justifyContent: { xs: 'center', sm: 'flex-start' }, 
+              flexWrap: 'wrap', 
               marginBottom: '1.45rem',
             }} 
           > 
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
-            <OutlinedCard />
+            {loading ? (
+              [...Array(12)].map((_, index) => (
+                <Box key={index} sx={{ minWidth: { xs: '100%', sm: '23%' }, marginBottom: '1.5rem', marginRight: '1.5rem' }}>
+                  <Skeleton variant="rectangular" width="100%" height={180} />
+                </Box>
+              ))
+            ) : jobs.length > 0 ? (
+              jobs.map((job) => <OutlinedCard key={job.id} job={job} />)
+            ) : (
+              <Typography sx={{ width: '100%', textAlign: 'center' }}>
+                No jobs found.
+              </Typography>
+            )}
           </Box>
         </Typography>
       </Container>
     </>
-  )
+  );
 }
 
 export default Home;

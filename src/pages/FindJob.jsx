@@ -6,7 +6,7 @@ import { Box, TextField } from "@mui/material";
 function FindJob() {
     return (
         <>
-            <Container maxWidth="lg">
+            <Container maxWidth="xl">
                 <Typography 
                     sx={{
                         textAlign: 'center',

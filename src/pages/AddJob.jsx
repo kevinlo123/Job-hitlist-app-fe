@@ -5,7 +5,7 @@ import { Container } from '@mui/material';
 function AddJob() {
   return (
     <>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Typography 
           sx={{
             textAlign: 'center',

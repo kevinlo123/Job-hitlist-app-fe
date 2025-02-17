@@ -1,17 +1,17 @@
 import React from 'react';
 import './App.css';
 import { Typography, Container } from "@mui/material";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Correct imports for routing
-import BottomNav from './navigation/BottomNav'; // Your BottomNav component
-import Home from './pages/Home'; // Home page
-import FindJob from './pages/FindJob'; // AllJobs page
-import AddJob from './pages/AddJob'; // AddJob page
-import DeleteJob from './pages/DeleteJob'; // DeleteJob page
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; 
+import BottomNav from './navigation/BottomNav'; 
+import Home from './pages/Home'; 
+import FindJob from './pages/FindJob'; 
+import AddJob from './pages/AddJob'; 
+import DeleteJob from './pages/DeleteJob';
 
 function App() {
   return (
     <Router>
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Typography 
           sx={{
             textAlign: 'left',
@@ -25,7 +25,6 @@ function App() {
         </Typography>
       </Container>
 
-      {/* Define your routes here */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/find-job" element={<FindJob />} />
@@ -33,7 +32,6 @@ function App() {
         <Route path="/delete-job" element={<DeleteJob />} />
       </Routes>
 
-      {/* Navigation component */}
       <BottomNav />
     </Router>
   );

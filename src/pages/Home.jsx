@@ -10,7 +10,7 @@ function Home() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const response = await fetch('http://https://job-hitlist-app-fe.vercel.app/api/Jobs');
+        const response = await fetch('https://wonderful-praline-2600f6.netlify.app/db.json');
         if (!response.ok) {
           throw new Error('Failed to fetch jobs');
         }

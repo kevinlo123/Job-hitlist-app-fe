@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Container } from "@mui/material";
-import Job from '../components/job';
+import OutlinedCard from '../components/Job';
 import { Box } from '@mui/system';
 
 function Home() {
@@ -24,22 +24,22 @@ function Home() {
               marginBottom: '1.45rem',
             }} 
           > 
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
-            <Job />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
+            <OutlinedCard />
           </Box>
         </Typography>
       </Container>

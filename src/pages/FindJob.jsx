@@ -8,12 +8,12 @@ function FindJob() {
         <>
             <Container maxWidth="lg">
                 <Typography 
-                sx={{
-                    textAlign: 'center',
-                    marginTop: '5rem',
-                    color: 'rgba(0, 0, 0, 0.6)',
-                }} 
-                variant="h4"
+                    sx={{
+                        textAlign: 'center',
+                        marginTop: '5rem',
+                        color: 'rgba(0, 0, 0, 0.6)',
+                    }} 
+                    variant="h4"
                 >
                     Find a Job
                     <Box 

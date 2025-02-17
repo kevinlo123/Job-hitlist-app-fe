@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import './App.css';
+import { Typography, Container } from "@mui/material";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Correct imports for routing
+import BottomNav from './navigation/BottomNav'; // Your BottomNav component
+import Home from './pages/Home'; // Home page
+import FindJob from './pages/FindJob'; // AllJobs page
+import AddJob from './pages/AddJob'; // AddJob page
+import DeleteJob from './pages/DeleteJob'; // DeleteJob page
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Container maxWidth="lg">
+        <Typography 
+          sx={{
+            textAlign: 'center',
+            marginTop: '5rem',
+            color: 'rgba(0, 0, 0, 0.6)',
+            fontSize: { xs: '3rem', sm: '3.5rem', md: '4rem', lg: '4.5rem' },
+          }} 
+          variant="h1"
+        >
+          2025 Job HitList
+        </Typography>
+      </Container>
+
+      {/* Define your routes here */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/find-job" element={<FindJob />} />
+        <Route path="/add-job" element={<AddJob />} />
+        <Route path="/delete-job" element={<DeleteJob />} />
+      </Routes>
+
+      {/* Navigation component */}
+      <BottomNav />
+    </Router>
+  );
 }
 
-export default App
+export default App;

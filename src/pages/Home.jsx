@@ -51,7 +51,7 @@ function Home() {
           > 
             {loading ? (
               [...Array(12)].map((_, index) => (
-                <Box key={index} sx={{ minWidth: { xs: '100%', sm: '23%' }, marginBottom: '1.5rem', marginRight: '1.5rem' }}>
+                <Box key={index} sx={{ minWidth: { xs: '100%', sm: '23%' }, marginBottom: '1.5rem', marginRight: { xs: '0', lg: '1.5rem' }}}>
                   <Skeleton variant="rectangular" width="100%" height={180} />
                 </Box>
               ))

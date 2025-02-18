@@ -13,7 +13,6 @@ function AddJob() {
     job_link: ''
   });
 
-  // Fetch jobs from API (fake initial load)
   useEffect(() => {
     const fetchJobs = async () => {
       try {
@@ -35,24 +34,21 @@ function AddJob() {
     fetchJobs();
   }, []);
 
-  // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.job_title || !formData.company) return;
 
-    // Fake job addition
     const newJob = {
       id: Date.now(),
       ...formData,
     };
 
-    setJobs([newJob, ...jobs]); // Add job to the top of the list
-    setFormData({ job_title: '', company: '', location: '', salary: '', job_link: '' }); // Reset form
+    setJobs([newJob, ...jobs]); 
+    setFormData({ job_title: '', company: '', location: '', salary: '', job_link: '' }); 
   };
 
   return (

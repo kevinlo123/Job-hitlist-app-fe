@@ -10,11 +10,9 @@ import BusinessIcon from '@mui/icons-material/Business';
 export default function OutlinedCard({ job, isDelete }) {
   return (
     <Box sx={{ 
-        minWidth: { xs: '100%', lg: '23%' },
-        maxWidth: { xs: '100%', lg: '23%' },
+        minWidth: { xs: '100%', lg: '32.55%' },
+        maxWidth: { xs: '100%', lg: '32.55%' },
         marginBottom: '1.5rem',
-        marginRight: { xs: '0', lg: '1.5rem' },
-
     }}>
       <Card variant="outlined">
         <CardContent sx={{ textAlign: 'left' }}>

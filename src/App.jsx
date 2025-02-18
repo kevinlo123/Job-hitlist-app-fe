@@ -11,19 +11,6 @@ import DeleteJob from './pages/DeleteJob';
 function App() {
   return (
     <Router>
-      <Container maxWidth="xl">
-        <Typography 
-          sx={{
-            textAlign: 'left',
-            marginTop: '5rem',
-            color: 'rgba(0, 0, 0, 0.6)',
-            fontSize: { xs: '3rem', sm: '3.5rem', md: '4rem', lg: '4.5rem' },
-          }} 
-          variant="h1"
-        >
-          2025 Job HitList
-        </Typography>
-      </Container>
 
       <Routes>
         <Route path="/" element={<Home />} />

@@ -47,11 +47,13 @@ function Home() {
               justifyContent: { xs: 'center', sm: 'flex-start' }, 
               flexWrap: 'wrap', 
               marginBottom: '1.45rem',
+              columnCount: { xs: 1, sm: 2, md: 3, lg: 4 },
+              columnGap: '1rem',
             }} 
           > 
             {loading ? (
               [...Array(12)].map((_, index) => (
-                <Box key={index} sx={{ minWidth: { xs: '100%', sm: '23%' }, marginBottom: '1.5rem', marginRight: { xs: '0', lg: '1.5rem' }}}>
+                <Box key={index} sx={{ minWidth: { xs: '100%', sm: '32.55%' }, marginBottom: '1.5rem'}}>
                   <Skeleton variant="rectangular" width="100%" height={180} />
                 </Box>
               ))

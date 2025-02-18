@@ -64,6 +64,7 @@ function FindJob() {
     return (
         <>
             <Container maxWidth="xl">
+
                 <Box 
                     sx={{
                         maxWidth: '100%',

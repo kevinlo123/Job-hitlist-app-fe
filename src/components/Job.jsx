@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import BusinessIcon from '@mui/icons-material/Business';
 
-export default function OutlinedCard({ job, isDelete }) {
+export default function OutlinedCard({ job, isDelete, onDelete }) {
   return (
     <Box sx={{ 
         minWidth: { xs: '100%', lg: '32.55%' },
@@ -36,12 +36,12 @@ export default function OutlinedCard({ job, isDelete }) {
             {job.location || "Location Not Provided"}
           </Typography>
           <Typography variant="body2">
-            Salary: <strong>{job.salary || "No job salary available."}</strong>
+            Salary: <strong>{`${job.salary}k` || "No job salary available."}</strong>
           </Typography>
         </CardContent>
         <CardActions>
           {isDelete ? (
-            <Button variant="outlined" color="error">
+            <Button variant="outlined" color="error" onClick={() => onDelete(job.id)}>
               Delete
             </Button>
           ) : (

@@ -30,6 +30,10 @@ function DeleteJob() {
 
   }, []);
 
+  const handleDeleteJob = (jobId) => {
+    setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId));
+  };
+
   return (
     <>
       <Container maxWidth="xl">
@@ -58,7 +62,7 @@ function DeleteJob() {
                 </Box>
               ))
             ) : jobs.length > 0 ? (
-              jobs.map((job) => <OutlinedCard key={job.id} isDelete={true} job={job} />)
+              jobs.map((job) => <OutlinedCard key={job.id} isDelete={true} job={job} onDelete={handleDeleteJob} />)
             ) : (
               <Typography sx={{ width: '100%', textAlign: 'center' }}>
                 No jobs found.

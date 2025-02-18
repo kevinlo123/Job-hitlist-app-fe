@@ -41,26 +41,21 @@ function FindJob() {
     const filteredJobs = jobs.length > 0 ? jobs.filter((job) => {
         const jobTitle = job.title?.toLowerCase() || "";
         const jobCompany = job.company?.toLowerCase() || "";
-
-        const matchesSearch = searchQuery
-            ? jobTitle.includes(searchQuery) || jobCompany.includes(searchQuery)
-            : true;
-
+        const matchesSearch = searchQuery ? jobTitle.includes(searchQuery) || jobCompany.includes(searchQuery) : true;
         const matchesFilter = (() => {
-            switch (selectedFilter) {
-                case "Front End":
-                    return job.role === "Front End";
-                case "Back End":
-                    return job.role === "Back End";
-                case "Full Stack":
-                    return job.role === "Full Stack";
-                case "Salary > 100k":
-                    return job.salary && job.salary > 100000;
-                case "Salary < 100k":
-                    return job.salary && job.salary < 100000;
-                default:
-                    return true;
-            }
+            if (selectedFilter === "All Jobs") {
+                return true;
+            } else if (selectedFilter === "Front End") {
+                return job.role === "FE";
+            } else if (selectedFilter === "Back End") { 
+                return job.role === "BE";
+            } else if (selectedFilter === "Full Stack") {
+                return job.role === "FS";
+            } else if (selectedFilter === "Salary > 100k") {    
+                return parseInt(job.salary) > 100;
+            } else if (selectedFilter === "Salary < 100k") {      
+                return parseInt(job.salary) < 100;
+            }  
         })();
 
         return matchesSearch && matchesFilter;
@@ -69,16 +64,6 @@ function FindJob() {
     return (
         <>
             <Container maxWidth="xl">
-                <Typography
-                    sx={{
-                        textAlign: 'center',
-                        marginTop: '5rem',
-                        color: 'rgba(0, 0, 0, 0.6)',
-                    }}
-                    variant="h4"
-                >
-                    Find a Job
-                </Typography>
                 <Box 
                     sx={{
                         maxWidth: '100%',
